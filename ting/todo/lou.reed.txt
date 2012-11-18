@@ -1,0 +1,56 @@
+#1: The Essential Lou Reed
+/album/10539000
+#2: Original Album Classics
+/album/8859664
+#3: The Power Of The Heart/Solsbury Hill
+/album/2502741
+#4: Discover Lou Reed
+/album/7399733
+#5: Playlist: The Very Best Of Lou Reed
+/album/7488697
+#6: The Best Of
+/album/7917558
+#7: Perfect Day
+/album/730029
+#8: Coney Island Baby
+/album/9146036
+#9: Transformer - Digipack
+/album/8022350
+#10: Transformer
+/album/1023600
+#11: The Raven
+/album/659754
+#12: Take No Prisoners - Live
+/album/9138464
+#13: Sally Can'T Dance
+/album/8005594
+#14: Rock And Roll Animal
+/album/8687921
+#15: Rock And Roll Heart
+/album/1186944
+#16: Ecstasy
+/album/656260
+#17: Lou Reed
+/album/8687995
+#18: The Blue Mask
+/album/346257
+#19: Perfect Night In London
+/album/654565
+#20: Berlin
+/album/8712515
+#21: Different Times - Lou Reed In The 70'S
+/album/8715772
+#22: Set The Twilight Reeling
+/album/651105
+#23: Live With Lou Reed, Vol.1
+/album/8571936
+#24: Mistrial
+/album/8722083
+#25: Street Hassle
+/album/1023533
+#26: Walk On The Wild Side And Other Hits
+/album/8712185
+#27: Magic And Loss
+/album/634021
+#28: New York
+/album/631033

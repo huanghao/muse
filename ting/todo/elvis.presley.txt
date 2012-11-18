@@ -1,0 +1,236 @@
+#1: Elvis: As Recorded at Madison Square Garden
+/album/31087773
+#2: The Classic Christmas Album
+/album/29422277
+#3: I Am An Elvis Fan
+/album/16587246
+#4: Original Album Classics
+/album/7519058
+#5: Elvis Country (Legacy Edition)
+/album/13672694
+#6: Elvis Presley - Legacy Edition
+/album/11276312
+#7: The Real Elvis
+/album/7291191
+#8: Elvis Is Back (Legacy Edition)
+/album/11277057
+#9: X2 (Elvis Presley/Elvis' Gold Records, Vol.4)
+/album/10735669
+#10: Viva Elvis
+/album/10556929
+#11: The Essential Elvis Presley
+/album/7396314
+#12: The Essential Elvis Presley 3.0
+/album/7493965
+#13: On Stage (Legacy Edition)
+/album/7494070
+#14: Today
+/album/7394063
+#15: Roustabout
+/album/7394064
+#16: Raised On Rock/For Ol' Times Sake
+/album/7394065
+#17: Elvis For Everyone
+/album/7394066
+#18: Spinout
+/album/7394067
+#19: For Lp Fans Only
+/album/7493663
+#20: Harum Scarum
+/album/7493667
+#21: Fun In Acapulco
+/album/7393681
+#22: King Creole
+/album/7399576
+#23: Speedway
+/album/7488668
+#24: Elvis Now
+/album/7399580
+#25: A Date With Elvis
+/album/7401629
+#26: Elvis Country
+/album/7401632
+#27: Welcome To My World
+/album/7393968
+#28: From Elvis Presley Boulevard, Memphis, Tennessee
+/album/7393970
+#29: Good Times
+/album/7393972
+#30: Paradise, Hawaiian Style
+/album/7393975
+#31: Love Letters From Elvis
+/album/7494074
+#32: Double Trouble
+/album/7494075
+#33: It Happened At The World?S Fair
+/album/7391698
+#34: Girl Happy
+/album/7391700
+#35: Elvis (Fool)
+/album/7488762
+#36: Clambake
+/album/7488764
+#37: Love Me Tender
+/album/12989225
+#38: Elvis - That'S The Way It Is
+/album/7399707
+#39: Elvis In Concert
+/album/7488543
+#40: Great Performances
+/album/7389728
+#41: A Touch Of Platinum Vol. 2
+/album/7389729
+#42: Elvis In Deutschland
+/album/7400997
+#43: Christmas Peace
+/album/7399480
+#44: A Touch Of Platinum
+/album/7493715
+#45: Elvis: Christmas Album
+/album/7493716
+#46: Christmas Wishes
+/album/7493729
+#47: The Only Elvis Presley Album You'Ll Ever Need
+/album/7390053
+#48: Discover Elvis Presley
+/album/7488687
+#49: Artist Of The Century
+/album/7400375
+#50: If Every Day Was Like Christmas
+/album/7399352
+#51: Always Elvis King Of Belgium Vol. 2
+/album/7400376
+#52: Can'T Help Falling In Love - The Hollywood Hits
+/album/7400382
+#53: You Don'T Have To Say You Love Me
+/album/7390148
+#54: Hitstory
+/album/7391176
+#55: The 50 Greatest Hits
+/album/7399371
+#56: A Hundred Years From Now - Essential Elvis 4
+/album/7399383
+#57: Elvis Ultimate Gospel
+/album/7391193
+#58: In The Ghetto
+/album/7391201
+#59: That'S The Way It Is
+/album/7399398
+#60: Elvis 75 - Good Rockin' Tonight
+/album/7390872
+#61: Elvis 75
+/album/7488736
+#62: Elvis' Gold Records, Volume 2
+/album/7517243
+#63: Suspicious Minds
+/album/8174286
+#64: Elvis Recorded Live On Stage In Memphis/Elvis As Recorded At Madison Square Garden
+/album/10418011
+#65: The Collection
+/album/10322392
+#66: From Elvis In Memphis
+/album/8174309
+#67: Playlist: The Very Best Of Elvis Presley
+/album/8174349
+#68: I Believe - The Gospel Masters
+/album/8174351
+#69: Elvis Presley Christmas Duets
+/album/9156713
+#70: The Complete '68 Comeback Special- The 40Th Anniversary Edition
+/album/7493588
+#71: Elvis Viva Las Vegas
+/album/8174345
+#72: The King
+/album/7517276
+#73: Elvis At The Movies
+/album/8174302
+#74: His Hand In Mine
+/album/8174330
+#75: Elvis By The Presleys
+/album/8174343
+#76: Love, Elvis
+/album/8174258
+#77: Loving You
+/album/8174224
+#78: Elvis
+/album/8174281
+#79: Elvis Presley
+/album/8174333
+#80: All Shook Up
+/album/8174300
+#81: The First Hits
+/album/2025511
+#82: Elvis Forever
+/album/8174335
+#83: The Artist Collection - Elvis Presley
+/album/9156705
+#84: That'S All Right
+/album/8174319
+#85: Elv1S - Special Edition
+/album/9635166
+#86: Elvis 2Nd To None
+/album/8174339
+#87: Rubberneckin'
+/album/8174298
+#88: Elvis: Close Up
+/album/7518811
+#89: Elvis '56
+/album/8174292
+#90: Elvis 30 #1 Hits
+/album/9635138
+#91: The 50 Greatest Love Songs
+/album/8174322
+#92: Live In Las Vegas
+/album/8174306
+#93: Million Dollar Quartet
+/album/8174337
+#94: Gospel Favourites
+/album/8174341
+#95: Burning Love
+/album/8408173
+#96: Something For Everybody
+/album/8174328
+#97: Love Songs
+/album/9156697
+#98: Sunrise
+/album/8173963
+#99: Memories (30Th Anniversary Edition Of Nbc-Tv '68 Comeback Special)
+/album/8174172
+#100: Aloha From Hawaii Via Satellite
+/album/8174132
+#101: Platinum - A Life In Music
+/album/8173990
+#102: An Afternoon In The Garden
+/album/8174326
+#103: Great Country Songs
+/album/8173948
+#104: Blue Hawaii
+/album/8174284
+#105: G.I. Blues
+/album/8174294
+#106: Elvis '56 - Collector'S Edition
+/album/8174288
+#107: Heart & Soul
+/album/9156693
+#108: From Nashville To Memphis - The Essential 60S Masters I
+/album/8417543
+#109: Elvis Sings The Wonderful World Of Christmas
+/album/8174324
+#110: Elvis As Recorded Live At Madison Square Garden
+/album/8174290
+#111: Elvis Double Features Viva Las Vegas & Roustabou
+/album/9156699
+#112: He Touched Me
+/album/8174101
+#113: Elvis Gospel 1957-1971: Known Only To Him
+/album/9156695
+#114: The Top Ten Hits
+/album/9156702
+#115: How Great Thou Art
+/album/8174296
+#116: Elv1S 30 #1 Hits
+/album/2025512
+#117: Kick Ass Ost
+/album/2199856
+#118: Cadillac Records
+/album/2200451

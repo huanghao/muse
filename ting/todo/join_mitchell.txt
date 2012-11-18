@@ -1,0 +1,90 @@
+#1: For The Roses
+/album/680905
+#2: The Beginning Of Survival
+/album/8516954
+#3: The Hissing Of Summer Lawns
+/album/680765
+#4: Shine
+/album/1601545
+#5: Miles Of Aisles
+/album/2026375
+#6: Mingus
+/album/609501
+#7: Don Juan'S Reckless Daughter
+/album/8481850
+#8: Hejira
+/album/609755
+#9: Rhino Hi-Five: Joni Mitchell
+/album/7898968
+#10: Songs Of A Prairie Girl
+/album/1023177
+#11: Dreamland
+/album/569560
+#12: Dreamland - The Very Best Of
+/album/2026373
+#13: Travelogue
+/album/613763
+#14: Both Sides Now
+/album/657003
+#15: Taming The Tiger
+/album/652827
+#16: Hits
+/album/2026374
+#17: Misses
+/album/2026376
+#18: Turbulent Indigo
+/album/649490
+#19: Night Ride Home
+/album/2026377
+#20: Shadows And Light
+/album/2177084
+#21: Chalk Mark In A Rainstorm
+/album/2026370
+#22: Dog Eat Dog
+/album/2026372
+#23: Blue
+/album/635289
+#24: Clouds
+/album/2026371
+#25: Wild Things Run Fast
+/album/2026369
+#26: Court And Spark
+/album/609693
+#27: Ladies Of The Canyon
+/album/637400
+#28: Big Yellow Taxi
+/album/697476
+#29: Joni Mitchell
+/album/637355
+#30: Song To A Seagull
+/album/327178
+#31: 云
+/album/393481
+#32: Travelogue Cd 2
+/album/393750
+#33: 梦幻乐园
+/album/393499
+#34: 热门单曲-Blue
+/album/1981998
+#35: Shadows And Light Cd1
+/album/393559
+#36: 怀念
+/album/396631
+#37: Don Juan S Reckless Daughter
+/album/609656
+#38: Travelogue (Disc 1)
+/album/2177150
+#39: Shadows And Light Cd2
+/album/393606
+#40: Travelogue (Disc 2)
+/album/2177163
+#41: 牧场女孩的歌
+/album/393637
+#42: 杰妮米歇尔精选集
+/album/386223
+#43: 训虎
+/album/393657
+#44: River - The Joni Letters
+/album/2173653
+#45: Travelogue Cd 1
+/album/393703

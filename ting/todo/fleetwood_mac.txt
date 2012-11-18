@@ -1,0 +1,20 @@
+#1: Greatest Hits
+/album/630938
+#2: Collections
+/album/8701608
+#3: Shrine '69
+/album/7591077
+#4: Behind The Mask
+/album/632065
+#5: Live In Boston
+/album/563216
+#6: The Dance
+/album/653760
+#7: The Best Of Fleetwood Mac
+/album/9079201
+#8: Fleetwood Mac
+/album/551478
+#9: Tango In The Night
+/album/629339
+#10: Rumours
+/album/636292

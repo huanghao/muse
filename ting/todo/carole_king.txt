@@ -1,0 +1,38 @@
+#1: Live At The Troubadour
+/album/7380857
+#2: Discover Carole King
+/album/7399440
+#3: Tapestry
+#/album/8251070
+#4: Tapestry (Legacy Edition)
+#/album/9635236
+#5: Original Album Classics
+/album/9324469
+#6: One To One
+/album/316542
+#7: Speeding Time
+/album/7676548
+#8: Music / Fantasy
+/album/8706810
+#9: Wrap Around Joy/Thoroughbred
+/album/8705713
+#10: Writer/Rhymes & Reasons
+/album/8705715
+#11: Really Rosie
+/album/7513873
+#12: Her Greatest Hits (Songs Of Long Ago)
+/album/8707766
+#13: Carole King The Carnegie Hall Concert June 18, 1971
+/album/9635535
+#14: Music
+/album/8786695
+#15: Rhymes & Reasons
+/album/8806668
+#16: Thoroughbred
+/album/8719380
+#17: Writer
+/album/8714568
+#18: Wrap Around Joy
+/album/8242669
+#19: Fantasy
+/album/8242902
