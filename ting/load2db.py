@@ -23,6 +23,12 @@ def esc(txt):
     return txt
 
 
+def text(node):
+    html = str(node)
+    html = re.sub(r'<[^>]*>', '', html)
+    return html
+
+
 def parse_album(html):
     soup = BS(html)
     album_name = soup.find('h2', 'album-name').string.strip()
@@ -30,7 +36,7 @@ def parse_album(html):
     singer = soup.find('span', 'author_list')['title'].strip()
     node = soup.find('span', 'description-all')
     if node:
-        desc = node.string.strip()
+        desc = text(node).strip()
     else:
         desc = None
 
@@ -179,6 +185,7 @@ def main():
         if not url.startswith(BASE):
             url = BASE + url
         alb = fetch_album(url)
+        print '='*10, alb['name']
         init_album(alb)
         insert_into_db(alb, priority)
 
