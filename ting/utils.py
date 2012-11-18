@@ -38,10 +38,12 @@ def clean_cache(key):
     if is_cached(key):
         os.unlink(key)
 
-def wget(url):
+def wget(url, force=False):
     key = get_key(url)
     if is_cached(key):
-        return read_cache(key)
+        if not force:
+            return read_cache(key)
+        clean_cache(key)
 
     time.sleep(.5)
     print >> sys.stderr, 'getting', url

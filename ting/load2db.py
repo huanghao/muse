@@ -16,18 +16,12 @@ DBNAME = 'songs.db'
 
 
 def esc(txt):
-    txt = txt.strip()
-    txt = re.sub(r'[^a-zA-Z0-9_]', '_', txt)
-    txt = re.sub(r'_+', '_', txt)
-    txt = txt.strip('_')
-    return txt
-
+    return txt.strip().replace(os.sep, '_')
 
 def text(node):
     html = str(node)
     html = re.sub(r'<[^>]*>', '', html)
     return html
-
 
 def parse_album(html):
     soup = BS(html)
@@ -62,57 +56,27 @@ def parse_album(html):
 
     return alb
 
-
-def download1(alb):
-    yield '''cat > meta <<EOF
-%s
-EOF''' % json.dumps(alb)
-
-    if alb['desc']:
-        yield '''cat > desc <<EOF
-%s
-EOF''' % alb['desc']
-
-    yield 'wget "%s"' % alb['cover']
-
-    yield 'BASE="%s"' % BASE
-    for song in alb['list']:
-        yield 'wget "$BASE%s/download" -O %s.download' % (song['href'], song['idx'])
-        yield 'sleep 2'
-
-
 def parse_download(html):
     soup = BS(html)
-    return soup.find('a', 'btn-download')['href']
+    return soup.find('a', 'btn-download')['href'].strip()
 
-
-def download2(alb):
-    yield 'BASE="%s"' % BASE
-
-    for song in alb['list']:
-        fname = '%s.download' % song['idx']
-        href = parse_download(open(fname).read())
-
-        fname = '%s_%s.mp3' % (song['idx'], song['title'])
-        yield 'wget "$BASE%s" -O "%s"' % (href, fname)
-        yield 'sleep 10'
-
+def fetch_download_url(songid, force=False):
+    dlink = '%s%s/download' % (BASE, songid)
+    page = wget(dlink, force)
+    return BASE + parse_download(page)
 
 def fetch_album(url):
     page = wget(url)
     alb = parse_album(page)
 
-    path = os.path.join(alb['singer'], alb['name'])
+    path = os.path.join(esc(alb['singer']), esc(alb['name']))
     alb['path'] = path
     alb['jobs'] = jobs = [{'url': alb['cover']}]
 
     for link in alb['links']:
-        dlink = '%s%s/download' % (BASE, link['href'])
-        page2 = wget(dlink)
-        href = parse_download(page2)
-        url = BASE + href
-        fname = '%s_%s.mp3' % (link['idx'], link['title'])
-        jobs.append({'url': url, 'fname': fname})
+        url = fetch_download_url(link['href'], FORCE)
+        fname = '%s_%s.mp3' % (link['idx'], esc(link['title']))
+        jobs.append({'url': url, 'fname': fname, 'songid': link['href']})
     return alb
 
 def init_album(alb):
@@ -142,6 +106,7 @@ singer text,
 album text,
 path text,
 url text
+,songid text
 )''')
         c.execute('select count(*) from jobs where album=?', (alb['name'],))
     if c.fetchone()[0] > 0:
@@ -156,11 +121,12 @@ url text
     else:
         id_ = itertools.count(1)
 
-    sql = 'insert into jobs(id,done,priority,fname,singer,album,path,url) values(?,?,?,?,?,?,?,?)'
+    sql = 'insert into jobs(id,done,priority,songid,fname,singer,album,path,url) values(?,?,?,?,?,?,?,?,?)'
     params = [(
         id_.next(),
         0,
         priority,
+        job['songid'] if 'songid' in job else '',
         job['fname'] if 'fname' in job else '',
         alb['singer'],
         alb['name'],
@@ -191,4 +157,5 @@ def main():
 
 
 if __name__ == '__main__':
+    FORCE = True
     main()
