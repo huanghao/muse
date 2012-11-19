@@ -54,7 +54,8 @@ def download(item):
     if not os.path.exists(path):
         makedirs(path)
 
-    cmd = 'cd "%s"; wget --no-cookies --header "Cookie: $(cat %s)" "%s" ' % (item['path'], COOKIE, item['url'])
+    #cmd = 'cd "%s"; wget --no-cookies --header "Cookie: $(cat %s)" "%s" ' % (item['path'], COOKIE, item['url'])
+    cmd = 'cd "%s"; wget "%s" ' % (item['path'], item['url'])
     if item['fname']:
         cmd += '-O "%s"' % item['fname']
     print cmd
