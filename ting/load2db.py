@@ -157,5 +157,5 @@ def main():
 
 
 if __name__ == '__main__':
-    FORCE = True
+    FORCE = False
     main()
