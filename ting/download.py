@@ -60,7 +60,7 @@ def download(item):
         cmd += '-O "%s"' % item['fname']
     print cmd
     print
-    ret = os.system(cmd)
+    ret = os.system(cmd.encode('utf8'))
     print 'EXIT CODE:', ret
     return ret
 
