@@ -21,6 +21,13 @@ def main():
         item = dict(zip(COLS, row))
         pp(item)
 
+        if not item['url'] and not item['songid']:
+            print 'insane'
+            break
+        elif not item['url']:
+            item['url'] = fetch_download_url(item['songid'])
+            c.execute('update jobs set url=? where id=?', (item['url'], item['id'],))
+
         for i in range(2):
             ret = download(item)
             if ret == 0:

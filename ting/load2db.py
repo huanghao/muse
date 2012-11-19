@@ -71,12 +71,14 @@ def fetch_album(url):
 
     path = os.path.join(esc(alb['singer']), esc(alb['name']))
     alb['path'] = path
-    alb['jobs'] = jobs = [{'url': alb['cover']}]
 
     for link in alb['links']:
-        url = fetch_download_url(link['href'], FORCE)
+        #url = fetch_download_url(link['href'], FORCE)
         fname = '%s_%s.mp3' % (link['idx'], esc(link['title']))
-        jobs.append({'url': url, 'fname': fname, 'songid': link['href']})
+        link['fname'] = fname
+        #jobs.append({'url': url, 'fname': fname, 'songid': link['href']})
+
+    alb['links'].append({'url': alb['cover']})
     return alb
 
 def init_album(alb):
@@ -126,13 +128,13 @@ url text
         id_.next(),
         0,
         priority,
-        job['songid'] if 'songid' in job else '',
+        job['href'] if 'href' in job else '',
         job['fname'] if 'fname' in job else '',
         alb['singer'],
         alb['name'],
         alb['path'],
-        job['url'],
-        ) for job in alb['jobs'] ]
+        job['url'] if 'url' in job else '',
+        ) for job in alb['links'] ]
     c.executemany(sql, params)
     print 'insert %d rows' % len(params)
 
