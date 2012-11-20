@@ -2,14 +2,27 @@ import os
 import time
 from pprint import pprint as pp
 import sqlite3
+from BeautifulSoup import BeautifulSoup as BS
 
-from load2db import DBNAME, fetch_download_url
-from utils import makedirs
+from util import makedirs, wget
 
 
 COLS = ('id', 'done', 'priority', 'fname', 'singer', 'album', 'path', 'url', 'songid')
+BASE = 'http://music.baidu.com'
 NAP = 1
 MAX_TRY = 2
+DBNAME = 'songs.db'
+
+
+def parse_download(html):
+    soup = BS(html)
+    return soup.find('a', 'btn-download')['href'].strip()
+
+def fetch_download_url(songid, force=False):
+    dlink = '%s%s/download' % (BASE, songid)
+    page = wget(dlink, force)
+    return BASE + parse_download(page)
+
 
 def main():
     conn = sqlite3.connect(DBNAME, isolation_level=None)
@@ -70,9 +83,9 @@ def download(item):
 #TODO:
 #save exit code into db
 #save time info, start time, cost, speed
-#shell esc
 #status check, todo, done, error, avg time
-#album cover url
+#load into a named db
+#duplicate detect
 
 
 if __name__ == '__main__':

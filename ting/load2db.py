@@ -5,18 +5,20 @@ import json
 import string
 import sqlite3
 import itertools
-from utils import wget, makedirs
+from util import wget, makedirs
 from urlparse import urlparse
 from pprint import pprint as pp
 from BeautifulSoup import BeautifulSoup as BS
 
 
 BASE = 'http://music.baidu.com'
+DBNAME = 'todo.db'
 DBNAME = 'songs.db'
 
-
 def esc(txt):
-    return txt.strip().replace(os.sep, '_').replace('`', '').replace('$', '')
+    for ch in '`~$%&@\\*?|<>/="':
+        txt = txt.replace(ch, '')
+    return txt.strip()
 
 def text(node):
     html = str(node)
@@ -56,20 +58,11 @@ def parse_album(html):
 
     return alb
 
-def parse_download(html):
-    soup = BS(html)
-    return soup.find('a', 'btn-download')['href'].strip()
-
-def fetch_download_url(songid, force=False):
-    dlink = '%s%s/download' % (BASE, songid)
-    page = wget(dlink, force)
-    return BASE + parse_download(page)
-
 def fetch_album(url):
     page = wget(url)
     alb = parse_album(page)
 
-    path = os.path.join(esc(alb['singer']), esc(alb['name'])).encode('utf8')
+    path = os.path.join(esc(alb['singer']), esc(alb['name']))
     alb['path'] = path
 
     for link in alb['links']:
@@ -157,5 +150,4 @@ def main():
 
 
 if __name__ == '__main__':
-    FORCE = False
     main()

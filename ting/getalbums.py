@@ -1,7 +1,7 @@
 import sys
 import json
 import itertools
-from utils import wget
+from util import wget
 from BeautifulSoup import BeautifulSoup as BS
 
 
