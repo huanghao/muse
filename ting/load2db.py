@@ -16,7 +16,7 @@ DBNAME = 'songs.db'
 
 
 def esc(txt):
-    return txt.strip().replace(os.sep, '_')
+    return txt.strip().replace(os.sep, '_').replace('`', '').replace('$', '')
 
 def text(node):
     html = str(node)
@@ -69,14 +69,12 @@ def fetch_album(url):
     page = wget(url)
     alb = parse_album(page)
 
-    path = os.path.join(esc(alb['singer']), esc(alb['name']))
+    path = os.path.join(esc(alb['singer']), esc(alb['name'])).encode('utf8')
     alb['path'] = path
 
     for link in alb['links']:
-        #url = fetch_download_url(link['href'], FORCE)
         fname = '%s_%s.mp3' % (link['idx'], esc(link['title']))
         link['fname'] = fname
-        #jobs.append({'url': url, 'fname': fname, 'songid': link['href']})
 
     alb['links'].append({'url': alb['cover']})
     return alb
