@@ -1,11 +1,11 @@
+#11: Bbc Sessions Cd1
+/album/520801
 #1: Bbc Sessions Cd2
 /album/520289
 #2: Violaine  Ep
 /album/519392
 #3: Tishbite  Ep
 /album/519761
-#4: Tishbite Ep
-/album/519635
 #5: Otherness  Ep
 /album/519916
 #6: Twinlights Ep
@@ -16,9 +16,5 @@
 /album/520197
 #9: Snow  Ep
 /album/519841
-#10: Evangeline  Ep
-/album/520113
-#11: Bbc Sessions Cd1
-/album/520801
 #12: Evangeline Ep
 /album/520154
