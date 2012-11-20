@@ -83,6 +83,26 @@ def init_album(alb):
         with open(os.path.join(path, 'desc'), 'w') as f:
             f.write(alb['desc'])
 
+    '''
+id int primary key,
+
+done int, # 0: initial 1:done 2:continue -1:insane <-1: error
+code int, # error code
+
+at datetime, # start time
+cost int, # seconds
+size int, # bytes
+
+priority int key,
+singer text,
+album text,
+
+path text,
+fname text,
+
+url text,
+songid text
+    '''
 
 def insert_into_db(alb, priority):
     conn = sqlite3.connect(DBNAME, isolation_level=None)
