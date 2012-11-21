@@ -12,7 +12,6 @@ from BeautifulSoup import BeautifulSoup as BS
 
 
 BASE = 'http://music.baidu.com'
-DBNAME = 'todo.db'
 DBNAME = 'songs.db'
 
 def esc(txt):
