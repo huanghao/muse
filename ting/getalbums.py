@@ -5,7 +5,8 @@ from util import wget
 from BeautifulSoup import BeautifulSoup as BS
 
 
-URL = 'http://music.baidu.com/data/user/getalbums?start=%d&ting_uid=%s'
+BASE = 'http://music.baidu.com'
+URL = BASE + '/data/user/getalbums?start=%d&ting_uid=%s'
 
 def get_albums(ting_uid):
     whole = []
@@ -37,7 +38,7 @@ def main():
     albums = get_albums(sys.argv[1])
     for i, alb in enumerate(albums):
         print '#%d: %s' % (i+1, alb['title'].encode('utf8'))
-        print alb['href']
+        print BASE + alb['href']
 
 
 

@@ -15,7 +15,7 @@ BASE = 'http://music.baidu.com'
 DBNAME = 'songs.db'
 
 def esc(txt):
-    for ch in '`~$%&@\\*?|<>/="':
+    for ch in '`~$%&@\\*?|<>/="#;':
         txt = txt.replace(ch, '')
     return txt.strip()
 

@@ -47,7 +47,6 @@ def group_by_album(c, args):
         else:
             print '%4s %4s %5s %15s    %s' % ('%', 'todo', 'total', 'singer', 'album')
 
-    header()
     two_part = True
     acc = 0
     for (singer, album), (total, ratio, todo) in sorted(num.iteritems(), key=lambda i:i[1][1], reverse=True):
