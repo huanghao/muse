@@ -4,6 +4,7 @@ import sys
 import json
 import string
 import sqlite3
+import argparse
 import itertools
 from util import wget, makedirs
 from urlparse import urlparse
@@ -12,7 +13,6 @@ from BeautifulSoup import BeautifulSoup as BS
 
 
 BASE = 'http://music.baidu.com'
-DBNAME = 'songs.db'
 
 def esc(txt):
     for ch in '`~$%&@\\*?|<>/="#;':
@@ -103,8 +103,8 @@ url text,
 songid text
     '''
 
-def insert_into_db(alb, priority):
-    conn = sqlite3.connect(DBNAME, isolation_level=None)
+def insert_into_db(dbname, alb, priority):
+    conn = sqlite3.connect(dbname, isolation_level=None)
     c = conn.cursor()
     try:
         c.execute('select count(*) from jobs where album=?', (alb['name'],))
@@ -149,23 +149,30 @@ url text
     print 'insert %d rows' % len(params)
 
 
-def main():
-    if len(sys.argv) > 1:
-        priority = int(sys.argv[1])
-    else:
-        priority = 0
+def getopt():
+    parser = argparse.ArgumentParser(description='load download jobs into db')
+    parser.add_argument('file_list', nargs='+', type=os.path.abspath, help='files to load')
+    parser.add_argument('--priority', type=int, default=0, help='download priority')
+    parser.add_argument('--db', type=os.path.abspath, default='songs.db', help='db name')
+    return parser.parse_args()
 
-    for line in sys.stdin:
-        line = line.strip()
-        if line.startswith('#') or not line:
-            continue
-        url = line
-        if not url.startswith(BASE):
-            url = BASE + url
-        alb = fetch_album(url)
-        print '='*10, alb['name']
-        init_album(alb)
-        insert_into_db(alb, priority)
+def main():
+    args = getopt()
+
+    print 'about to load into db', args.db
+    for fname in args.file_list:
+        for line in open(fname):
+            line = line.strip()
+            if line.startswith('#') or not line:
+                continue
+
+            url = line
+            if not url.startswith(BASE):
+                url = BASE + url
+            alb = fetch_album(url)
+            print '='*10, alb['name']
+            init_album(alb)
+            insert_into_db(args.db, alb, args.priority)
 
 
 if __name__ == '__main__':
