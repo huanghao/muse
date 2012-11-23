@@ -1,19 +1,16 @@
 #!/usr/bin/env python
 import os
 import time
-from pprint import pprint as pp
+import pprint
 import sqlite3
+import argparse
 from BeautifulSoup import BeautifulSoup as BS
+from util import makedirs, wget, fetch
 
-from util import makedirs, wget
 
-
-COLS = ('id', 'done', 'priority', 'fname', 'singer', 'album', 'path', 'url', 'songid')
 BASE = 'http://music.baidu.com'
 NAP = 1
 MAX_TRY = 2
-DBNAME = 'songs.db'
-
 
 def parse_download(html):
     soup = BS(html)
@@ -24,9 +21,16 @@ def fetch_download_url(songid, force=False):
     page = wget(dlink, force)
     return BASE + parse_download(page)
 
+def getopt():
+    parser = argparse.ArgumentParser(description='ting mp3 downloader')
+    parser.add_argument('db', nargs='?', default='songs.db', type=os.path.abspath, help='db file')
+    return parser.parse_args()
 
 def main():
-    conn = sqlite3.connect(DBNAME, isolation_level=None)
+    args = getopt()
+
+    cols = ('id', 'done', 'priority', 'fname', 'singer', 'album', 'path', 'url', 'songid')
+    conn = sqlite3.connect(args.db, isolation_level=None)
     c = conn.cursor()
     while 1:
         c.execute('select * from jobs where done==0 or done==-1 order by priority desc limit 1')
@@ -34,8 +38,8 @@ def main():
         if not row:
             print 'work done'
             break
-        item = dict(zip(COLS, row))
-        pp(item)
+        item = dict(zip(cols, row))
+        pprint.pprint(item)
 
         if not item['url'] and not item['songid']:
             print 'insane'
@@ -47,7 +51,7 @@ def main():
             c.execute('update jobs set url=? where id=?', (item['url'], item['id'],))
 
         for i in range(MAX_TRY):
-            ret = download(item)
+            ret = fetch(item['url'], item['path'], item['fname'])
             if ret == 0:
                 c.execute('update jobs set done=1 where id=?', (item['id'],))
                 time.sleep(NAP)
@@ -64,22 +68,6 @@ def main():
             c.execute('update jobs set done=-3 where id=?', (item['id'],))
             print 'tried 3 times but still failed, exit ...'
 
-
-COOKIE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cookie.txt')
-def download(item):
-    path = item['path']
-    if not os.path.exists(path):
-        makedirs(path)
-
-    #cmd = 'cd "%s"; wget --no-cookies --header "Cookie: $(cat %s)" "%s" ' % (item['path'], COOKIE, item['url'])
-    cmd = 'cd "%s"; wget "%s" ' % (item['path'], item['url'])
-    if item['fname']:
-        cmd += '-O "%s"' % item['fname']
-    print cmd
-    print
-    ret = os.system(cmd.encode('utf8'))
-    print 'EXIT CODE:', ret
-    return ret
 
 #TODO:
 #save exit code into db

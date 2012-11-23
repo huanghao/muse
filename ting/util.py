@@ -47,10 +47,24 @@ def wget(url, force=False):
 
     time.sleep(.5)
     print >> sys.stderr, 'getting', url
-    page = urllib2.urlopen(url).read()
-    write_cache(key, page)
-    return page
 
+    if (fetch(url, os.path.dirname(key), os.path.basename(key)) != 0):
+        raise Exception('download failed')
+
+    with open(key) as f:
+        return f.read()
+
+def fetch(url, path, fname=None):
+    if not os.path.exists(path):
+        makedirs(path)
+    cmd = 'cd "%s"; wget "%s" ' % (path, url)
+    if fname:
+        cmd += '-O "%s"' % fname
+    print cmd
+    print
+    ret = os.system(cmd.encode('utf8'))
+    print 'EXIT CODE:', ret
+    return ret
 
 
 if __name__ == '__main__':
