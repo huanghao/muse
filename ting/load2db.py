@@ -29,7 +29,11 @@ def parse_album(html):
     soup = BS(html)
     album_name = soup.find('h2', 'album-name').string.strip()
     cover_link = soup.find('span', 'cover').find('img')['src']
-    singer = soup.find('span', 'author_list')['title'].strip()
+    span = soup.find('span', 'author_list')
+    try:
+        singer = span['title'].strip()
+    except KeyError:
+        singer = span.find('a')['title'].strip()
     node = soup.find('span', 'description-all')
     if node:
         desc = text(node).strip()
