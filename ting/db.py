@@ -49,7 +49,19 @@ def group_by_album(c, args):
 
     two_part = True
     acc = 0
-    for (singer, album), (total, ratio, todo) in sorted(num.iteritems(), key=lambda i:i[1][1], reverse=True):
+    def sort_func(i, j):
+        (singer1, album1), (total1, ratio1, _) = i
+        (singer2, album2), (total2, ratio2, _) = j
+        r = cmp(ratio2, ratio1)
+        if r != 0: return r
+        r = cmp(singer2, singer1)
+        if r != 0: return r
+        r = cmp(total2, total1)
+        if r != 0: return r
+        r = cmp(album2, album1)
+        return r
+
+    for (singer, album), (total, ratio, todo) in sorted(num.iteritems(), cmp=sort_func):
         if not args.all and ratio == 100:
             continue
 
@@ -63,12 +75,26 @@ def group_by_album(c, args):
         else:
             print '%3d%% %4d %5d %15s    %s' % (ratio, todo, total, singer, album)
 
+def what_done(c):
+    def col1(sql):
+        return [ i[0] for i in c.execute(sql).fetchall() ]
+
+    all = set(col1('select distinct singer from jobs'))
+    not_done = set(col1('select distinct singer from jobs where done!=1'))
+    done = sorted(all - not_done)
+    print '\n'.join(done)
+
+def what_error(c):
+    for row in c.execute('select * from jobs where done < 0').fetchall():
+        print ' '.join([ i.encode('utf8') if isinstance(i, unicode) else str(i) for i in row ])
 
 def getopt():
     parser = argparse.ArgumentParser(description='db helper')
     parser.add_argument('db', nargs='?', default='songs.db', type=os.path.abspath, help='db file')
     parser.add_argument('--acc', action='store_true', help='show accumulate total')
     parser.add_argument('-a', '--all', action='store_true', help='show all albums including finish')
+    parser.add_argument('--done', action='store_true', help='show done artists')
+    parser.add_argument('--error', action='store_true', help='show error songs')
     return parser.parse_args()
 
 
@@ -76,7 +102,12 @@ def main():
     args = getopt()
     conn = sqlite3.connect(args.db, isolation_level=None)
     c = conn.cursor()
-    group_by_album(c, args)
+    if args.error:
+        what_error(c)
+    elif args.done:
+        what_done(c)
+    else:
+        group_by_album(c, args)
     summary(c)
 
 
